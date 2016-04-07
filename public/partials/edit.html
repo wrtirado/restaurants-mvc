@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <form class="col s12" ng-submit="restCtrl.addRestaurant(restCtrl.newRestaurant)">
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="restCtrl.newRestaurant.name" id="restName" type="text" class="validate">
+          <label for="restName">Restaurant Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="restCtrl.newRestaurant.address" id="address" type="text" class="validate">
+          <label for="address">Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="restCtrl.newRestaurant.rating" id="rating" type="number" class="validate">
+          <label for="rating">Rating</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="restCtrl.newRestaurant.type" id="type" type="text" class="validate">
+          <label for="type">Type</label>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit" name="button">UPDATE</button>
+  <button ui-sref="home" class="waves-effect waves-light btn" type="submit" name="button">Back to Home
+<i class="material-icons right">send</i>
+</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <h1 class="red-text center-align">Restaurant App</h1>
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th data-field="id">Name</th>
+        <th data-field="name">Address</th>
+        <th data-field="price">Rating</th>
+        <th data-field="price">Type</th>
+        <th data-field="price">Edit</th>
+        <th data-field="price">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody >
+      <tr ng-repeat="r in restCtrl.restaurants track by $index" repeat-done="restCtrl.initModals()">
+        <td>{{r.name}}</td>
+        <td>{{r.address}}</td>
+        <td>{{r.rating}}</td>
+        <td>{{r.type}}</td>
+        <td><button data-target="editModal" ng-click="restCtrl.setCurrentR(r)" class="btn-floating btn-large waves-effect waves-light red modal-trigger"><i class="material-icons">edit</i></button></td>
+        <td><a ng-click="restCtrl.deleteDetail(r._id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a ui-sref="newForm" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>
+
+<!-- Modal Structure -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <div class="container">
+      <div class="row">
+        <form class="col s12" ng-submit="restCtrl.editRestaurant(restCtrl.currentR)">
+          <div class="row">
+            <div class="input-field col s12">
+              <input ng-model="restCtrl.currentR.name" id="restName" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input ng-model="restCtrl.currentR.address" id="address" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input ng-model="restCtrl.currentR.rating" id="rating" type="number" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input ng-model="restCtrl.currentR.type" id="type" type="text" class="validate">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button ng-click="restCtrl.updateDetail(restCtrl.currentR)" class="waves-effect waves-light btn modal-action modal-close" type="submit" name="button">UPDATE</button>
+            <button class="modal-action modal-close waves-effect waves-light btn" type="submit" name="button">Back to Home
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
