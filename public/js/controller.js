@@ -18,7 +18,7 @@
       })
 
     restCtrl.addRestaurant = function(restaurant) {
-      console.log('1 - Client: ng-click for adding a restaurant: running inside the controller.js file')
+      console.log('1 - Client: ng-click for adding a restaurant: calling the funciton witing the front end factory')
       restaurantsFactory.create(restaurant)
         .then(function(res) {
           console.log('6 - client: running inside the controller.js file --- end communication between client and server', res)
@@ -33,7 +33,7 @@
     }
 
     restCtrl.deleteDetail = function(id) {
-      console.log('1 - Client: ng-click for deleting a restaurant: running inside the controller.js file')
+      console.log('1 - Client: ng-click for deleting a restaurant: calling the funciton witing the front end factory')
       restaurantsFactory.destroy(id)
         .then(function(res) {
           console.log("Deleted Restaurant")
@@ -46,10 +46,10 @@
     }
 
     restCtrl.updateDetail = function(restaurant) {
-      console.log(restaurant)
+      console.log('1 - Client: ng-click for updating a restaurant: calling the funciton witing the front end factory')
       restaurantsFactory.update(restaurant._id,restaurant)
         .then(function(res) {
-          console.log("Updated Restaurant", res)
+          console.log('7 - recieving the response from the http request end communication between client and server')
         })
     }
 

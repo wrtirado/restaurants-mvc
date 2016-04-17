@@ -28,10 +28,10 @@ module.exports = {
       })
     },
     update: function(req, res) {
-      console.log('this is req', req.body)
+      console.log('3 - serverSide: update function gets called, runs the findOne method defined within express.')
       var id = req.params.id
       db.Restaurant.findOne({_id: id}, function(err, rest) {
-        console.log("this is rest", rest)
+        console.log('4 - serverSide: findOne express method is called, checkes to see if the requests body\'s content has been updated, and updates the database accordingly.')
         if (req.body.name) {
           rest.name = req.body.name
         }
@@ -45,6 +45,7 @@ module.exports = {
           rest.type = req.body.type
         }
         rest.save(function(err, r) {
+          console.log('5 - serverSide: saving the the NEW updated object, sending the RESPONSE back to the http in the factory')
           console.log(err)
           console.log(r)
           res.json(r)
@@ -52,7 +53,7 @@ module.exports = {
       })
     },
     create: function(req, res) {
-      console.log('3 - serverSide: running inside the restaurants_controller.js file', req)
+      console.log('3 - serverSide: running inside the restaurants_controller.js file')
       var restaurant = new db.Restaurant(req.body)
       restaurant.save(function(err, rest) {
         if (err) res.json(err)
@@ -70,7 +71,6 @@ module.exports = {
           message: "Deleted User!"
         })
       })
-
     }
   }
 }
